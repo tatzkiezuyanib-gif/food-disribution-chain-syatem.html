@@ -1189,6 +1189,428 @@ button:active{
   .modal-actions{flex-wrap:wrap}
   .modal-actions button{flex:1;min-width:120px}
 }
+
+/* ============================================================
+   AI-STYLE VISUAL ENHANCEMENT — STYLE ONLY
+   Existing functions, layout, buttons, behavior and JavaScript
+   are intentionally preserved.
+   ============================================================ */
+
+/* Dashboard/page background: modern AI-inspired layered glow */
+body{
+  background:
+    radial-gradient(circle at 8% 8%, rgba(45,212,191,.13), transparent 28%),
+    radial-gradient(circle at 92% 10%, rgba(99,102,241,.14), transparent 30%),
+    radial-gradient(circle at 50% 95%, rgba(14,165,233,.10), transparent 32%),
+    linear-gradient(135deg,#eef7ff 0%,#f5f3ff 48%,#ecfbf8 100%) !important;
+}
+
+.app-shell{
+  background:
+    radial-gradient(circle at 78% 18%, rgba(99,102,241,.08), transparent 27%),
+    radial-gradient(circle at 25% 82%, rgba(20,184,166,.07), transparent 28%),
+    linear-gradient(135deg,#eef7ff 0%,#f7f5ff 50%,#eefcf9 100%) !important;
+}
+
+/* Main dashboard working area */
+.main-zone{
+  background:
+    radial-gradient(circle at 86% 8%, rgba(59,130,246,.07), transparent 25%),
+    radial-gradient(circle at 12% 92%, rgba(16,185,129,.06), transparent 28%),
+    transparent;
+}
+
+.main-content{
+  position:relative;
+}
+
+/* Subtle AI-style ambient glow behind dashboard content */
+#view-overview::before{
+  content:"";
+  position:absolute;
+  width:420px;
+  height:420px;
+  right:-170px;
+  top:80px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(99,102,241,.10),transparent 68%);
+  pointer-events:none;
+  filter:blur(4px);
+}
+
+#view-overview{
+  position:relative;
+}
+
+/* Dashboard boxes / KPI cards */
+#view-overview .card,
+#view-overview .kpi{
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.96),rgba(248,251,255,.91)) !important;
+  border:1px solid rgba(148,163,184,.24) !important;
+  box-shadow:
+    0 10px 30px rgba(15,23,42,.07),
+    0 2px 8px rgba(59,130,246,.05),
+    inset 0 1px 0 rgba(255,255,255,.85) !important;
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease,
+    border-color .25s ease,
+    background .25s ease !important;
+}
+
+#view-overview .card:hover,
+#view-overview .kpi:hover{
+  transform:translateY(-4px);
+  border-color:rgba(99,102,241,.30) !important;
+  box-shadow:
+    0 16px 38px rgba(15,23,42,.11),
+    0 5px 18px rgba(59,130,246,.09),
+    inset 0 1px 0 rgba(255,255,255,.95) !important;
+}
+
+/* KPI accent bars */
+#view-overview .kpi:before{
+  width:4px;
+  background:linear-gradient(180deg,#22c55e,#06b6d4,#6366f1) !important;
+  box-shadow:0 0 10px rgba(59,130,246,.18);
+}
+
+/* Dashboard headings */
+#view-overview .page-title{
+  background:linear-gradient(90deg,#0f172a 0%,#2563eb 48%,#0d9488 100%) !important;
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent !important;
+}
+
+#view-overview .eyebrow{
+  color:#4f46e5 !important;
+  letter-spacing:.16em;
+}
+
+/* Animated dashboard buttons — behavior remains unchanged */
+button.primary,
+button.secondary,
+button.nav-button,
+button.action-link,
+button.icon-button,
+#view-overview button{
+  position:relative;
+  overflow:hidden;
+  isolation:isolate;
+}
+
+/* Moving shine */
+button.primary::after,
+button.secondary::after,
+button.nav-button::after,
+button.action-link::after,
+button.icon-button::after,
+#view-overview button::after{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-130%;
+  width:55%;
+  height:100%;
+  background:linear-gradient(
+    110deg,
+    transparent,
+    rgba(255,255,255,.34),
+    transparent
+  );
+  transform:skewX(-20deg);
+  pointer-events:none;
+  z-index:-1;
+}
+
+button.primary:hover::after,
+button.secondary:hover::after,
+button.nav-button:hover::after,
+button.action-link:hover::after,
+button.icon-button:hover::after,
+#view-overview button:hover::after{
+  animation:aiButtonShine .75s ease;
+}
+
+@keyframes aiButtonShine{
+  from{left:-130%}
+  to{left:150%}
+}
+
+/* Primary buttons */
+button.primary{
+  background:linear-gradient(135deg,#10b981 0%,#06b6d4 48%,#4f46e5 100%) !important;
+  border-color:rgba(79,70,229,.55) !important;
+  box-shadow:
+    0 7px 18px rgba(37,99,235,.18),
+    0 2px 5px rgba(16,185,129,.12) !important;
+  transition:
+    transform .2s ease,
+    box-shadow .2s ease,
+    filter .2s ease !important;
+}
+
+button.primary:hover{
+  transform:translateY(-2px) scale(1.015);
+  filter:saturate(1.08) brightness(1.03);
+  box-shadow:
+    0 12px 26px rgba(37,99,235,.25),
+    0 4px 10px rgba(16,185,129,.16) !important;
+}
+
+button.primary:active{
+  transform:translateY(1px) scale(.98) !important;
+}
+
+/* Secondary buttons */
+button.secondary{
+  background:linear-gradient(135deg,#ffffff,#f0f7ff,#f0fdf9) !important;
+  border-color:rgba(99,102,241,.28) !important;
+  box-shadow:0 5px 14px rgba(15,23,42,.07) !important;
+}
+
+button.secondary:hover{
+  transform:translateY(-2px);
+  border-color:rgba(59,130,246,.48) !important;
+  box-shadow:
+    0 10px 22px rgba(59,130,246,.13),
+    0 2px 8px rgba(16,185,129,.08) !important;
+}
+
+/* Sidebar navigation buttons */
+button.nav-button{
+  transition:
+    transform .2s ease,
+    background .2s ease,
+    box-shadow .2s ease,
+    color .2s ease !important;
+}
+
+button.nav-button:hover{
+  transform:translateX(4px);
+  background:linear-gradient(
+    90deg,
+    rgba(59,130,246,.18),
+    rgba(16,185,129,.13)
+  ) !important;
+  box-shadow:0 6px 16px rgba(0,0,0,.10);
+}
+
+button.nav-button.active{
+  background:linear-gradient(
+    100deg,
+    #164e63 0%,
+    #0f766e 48%,
+    #2563eb 100%
+  ) !important;
+  box-shadow:
+    inset 4px 0 #67e8f9,
+    0 7px 18px rgba(15,118,110,.22) !important;
+}
+
+/* Gentle pulse for interactive primary buttons */
+button.primary{
+  animation:aiButtonFloat 3.2s ease-in-out infinite;
+}
+
+button.primary:hover,
+button.primary:active{
+  animation:none;
+}
+
+@keyframes aiButtonFloat{
+  0%,100%{box-shadow:0 7px 18px rgba(37,99,235,.18),0 2px 5px rgba(16,185,129,.12)}
+  50%{box-shadow:0 9px 23px rgba(37,99,235,.24),0 3px 8px rgba(16,185,129,.16)}
+}
+
+/* Keep accessibility behavior */
+@media (prefers-reduced-motion:reduce){
+  *,
+  *::before,
+  *::after{
+    animation-duration:.01ms !important;
+    animation-iteration-count:1 !important;
+    scroll-behavior:auto !important;
+    transition-duration:.01ms !important;
+  }
+}
+
+
+/* REQUESTED FIX ONLY: fixed left navigation; dashboard/main content scrolls. */
+.app-shell{height:100vh;min-height:100vh;overflow:hidden;}
+.side-rail{position:sticky;top:0;height:100vh;min-height:100vh;flex-shrink:0;}
+.main-zone{height:100vh;min-height:0;overflow-y:auto;overflow-x:hidden;}
+.topbar{position:sticky;top:0;z-index:20;}
+
+/* Requested visual-only change: clearer FreshChain dashboard title */
+#view-overview .eyebrow{font-family:"Poppins","DM Sans",sans-serif !important;font-size:14px !important;font-weight:800 !important;letter-spacing:.10em !important;color:#0b8f68 !important;text-transform:uppercase !important;opacity:1 !important;visibility:visible !important;}
+#view-overview #overview-title{font-family:"Poppins","DM Sans",sans-serif !important;font-size:32px !important;font-weight:800 !important;color:#0b3552 !important;letter-spacing:-.025em !important;opacity:1 !important;visibility:visible !important;text-shadow:0 2px 12px rgba(11,53,82,.12) !important;}
+#view-overview [data-template-id="overview-helper"]{font-family:"DM Sans","Poppins",sans-serif !important;font-size:14px !important;font-weight:500 !important;color:#36566f !important;opacity:1 !important;visibility:visible !important;}
+
+/* Requested visual-only changes: center FreshChain title and replace white dashboard background */
+#view-overview{background:linear-gradient(135deg,#eef7f4 0%,#eaf3f8 50%,#f4f1fb 100%) !important;}
+#view-overview > *{ }
+#view-overview .overview-hero, #view-overview .hero, #view-overview .welcome, #view-overview [class*="hero"]{ }
+#view-overview #overview-title{ text-align:center !important; margin-left:auto !important; margin-right:auto !important; }
+#view-overview .eyebrow{ text-align:center !important; }
+#view-overview [data-template-id="overview-helper"]{ text-align:center !important; margin-left:auto !important; margin-right:auto !important; }
+
+/* REQUESTED LOGO-ONLY UPDATE: vivid true-gold finish and alternating rotation */
+.brand-mark{
+  background:linear-gradient(135deg,#FFF3A6 0%,#FFD700 28%,#D4AF37 52%,#FFD700 76%,#FFF0A0 100%) !important;
+  color:#7A5200 !important;
+  border:1px solid #F7D34B !important;
+  box-shadow:0 0 0 2px rgba(255,215,0,.18),0 7px 18px rgba(212,175,55,.32),inset 0 1px 2px rgba(255,255,255,.75) !important;
+  transform-origin:center center !important;
+  animation:freshChainGoldLogo 4.8s ease-in-out infinite !important;
+}
+.brand-mark svg{
+  color:#7A5200 !important;
+  stroke:#7A5200 !important;
+  filter:drop-shadow(0 1px 1px rgba(255,255,255,.55)) !important;
+}
+@keyframes freshChainGoldLogo{
+  0%{transform:rotate(0deg)}
+  18%{transform:rotate(-180deg)}
+  36%{transform:rotate(-360deg)}
+  54%{transform:rotate(-270deg)}
+  72%{transform:rotate(-450deg)}
+  86%{transform:rotate(-330deg)}
+  100%{transform:rotate(-360deg)}
+}
+
+
+/* ============================================================
+   REQUESTED MOBILE-ONLY RESPONSIVE FIX
+   Desktop/laptop layout, functions, buttons, forms, automation,
+   database behavior, calculations and existing styling are kept.
+   These rules only make the existing interface fit small screens.
+   ============================================================ */
+@media (max-width:640px){
+  html,body{
+    width:100%;
+    max-width:100%;
+    overflow-x:hidden;
+  }
+
+  .app-shell{
+    width:100%;
+    min-width:0;
+    max-width:100%;
+    display:block;
+    overflow-x:hidden;
+  }
+
+  .side-rail{
+    width:100%;
+    max-width:100%;
+    box-sizing:border-box;
+    overflow-x:auto;
+    overflow-y:hidden;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:thin;
+  }
+
+  .brand{
+    flex:0 0 auto;
+    min-width:max-content;
+  }
+
+  .nav-button{
+    flex:0 0 auto;
+    min-width:44px;
+    min-height:42px;
+    touch-action:manipulation;
+  }
+
+  .main-zone{
+    width:100%;
+    min-width:0;
+    max-width:100%;
+    height:auto;
+    min-height:calc(100vh - 60px);
+    overflow-x:hidden;
+    overflow-y:visible;
+  }
+
+  .topbar{
+    width:100%;
+    max-width:100%;
+    box-sizing:border-box;
+  }
+
+  .main-content{
+    width:100%;
+    max-width:100%;
+    box-sizing:border-box;
+    overflow-x:hidden;
+  }
+
+  .view{
+    width:100%;
+    max-width:100%;
+    box-sizing:border-box;
+  }
+
+  .card,
+  .section-card,
+  .dashboard-grid,
+  .split,
+  .form-grid,
+  .kpi-grid,
+  .toolbar,
+  .table-wrap{
+    max-width:100%;
+    box-sizing:border-box;
+  }
+
+  .table-wrap{
+    width:100%;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+  }
+
+  table{
+    min-width:620px;
+  }
+
+  input,select,textarea,button{
+    max-width:100%;
+    box-sizing:border-box;
+  }
+
+  .modal{
+    max-width:calc(100vw - 28px);
+    max-height:calc(100vh - 28px);
+    overflow-y:auto;
+    box-sizing:border-box;
+  }
+
+  .view.active [data-template-id="new-order-button"],
+  .view.active [data-template-id="new-po-button"],
+  .view.active [data-template-id="receive-button"]{
+    max-width:calc(100vw - 28px);
+  }
+
+  .header-title,
+  .header-status-area{
+    min-width:0;
+  }
+
+  .header-title-text{
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+  }
+
+  .helper{
+    overflow-wrap:anywhere;
+  }
+}
 </style>
 
 <script src="https://cdn.tailwindcss.com/3.4.17" type="text/javascript"></script>
